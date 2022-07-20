@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESP IoT Firebase DASH</title>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+
+    <!-- include only the Firebase features as you need -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+  
+
+    <script>
+     // REPLACE WITH YOUR web app's Firebase configuration
+     const firebaseConfig = {
+        
+      };
+
+      // Initialize firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Make auth and database references
+      const auth = firebase.auth();
+      const db = firebase.database();
+
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <!--TOP BAR-->
+  <div class="topnav">
+    <h1>Read Sensor DASH <i class="fas fa-clipboard-list"></i></h1>
+  </div>
+
+  <!--AUTHENTICATION BAR (USER DETAILS/LOGOUT BUTTON)-->
+  <div id="authentication-bar" style="display: none;">
+    <p><span id="authentication-status">Usuario Logged</span>
+       <span id="user-details">USEREMAIL</span>
+       <a href="/" id="logout-link">(logout)</a>
+    </p>
+  </div>
+
+  <!--LOGIN FORM-->
+  <form id="login-form" style="display: none;">
+    <div class="form-elements-container">
+      <label for="input-email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Username" id="input-email" required>
+
+      <label for="input-password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="input-password" required>
+
+      <button type="submit" id="login-button">Login</button>
+      <p id="error-message" style="color:red;"></p>
+    </div>
+  </form>
+
+  <!--CONTENT (SENSOR READINGS)-->
+  <div class="content-sign-in" id="content-sign-in">
+    <div class="cards">
+      <!--LED-->
+      <div class="card card-switch\"><h4><i class="fas fa-lightbulb\"></i>ESTADO LED</h4><label class="switch"><input type="checkbox" onchange="toggleLed(this);" id="led"><span class="slider"></span></label></div>            
+    
+      <!--TEMPERATURE-->
+      <div class="card">
+        <p><i class="fas fa-thermometer-half" style="color:#e72b3b;"></i> TEMPERATURA</p>
+        <p><span class="reading"><span id="temp"></span> &deg;C</span></p>
+      </div>
+      <!--HUMIDITY-->
+      <div class="card">
+        <p><i class="fas fa-tint" style="color:#00add6;"></i> HUMEDAD</p>
+        <p><span class="reading"><span id="hum"></span> &percnt;</span></p>
+      </div>
+      <!--PRESSURE-->
+      <div class="card">
+        <p><i class="fas fa-rocket" style="color:#e47637;"></i> PRESIÓN</p>
+        <p><span class="reading"><span id="pres"></span> hPa</span></p>
+      </div>
+  
+          
+    </div>
+     
+    <!--CHARTS-->
+  <!--  <div id="charts-div" style="display:none"> -->
+    <div id="charts-div" >
+      <!--SET NUMBER OF READINGS INPUT FIELD-->
+      <div>
+        <p> GRAFICAS</p>
+      </div>
+      <!--TEMPERATURE-CHART-->
+      <div class="cards">
+        <div class="card">
+          <p><i class="fas fa-thermometer-half" style="color:#059e8a;"></i> TEMPERATURE CHART</p>
+          <div id="chart-temperature" class="chart-container"></div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+  
+
+  <script src="scripts/index.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/charts-definitions.js"></script>
+  </body>
+</html>
