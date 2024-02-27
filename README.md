@@ -26,10 +26,6 @@ Este proyecto consiste en una dashboard en tiempo real desarrollada en Firebase 
 
 4. **Visualización de Datos:** Accede a la URL de la dashboard para visualizar en tiempo real los datos enviados por el ESP32 y su representación gráfica.
 
-## Ejemplo de Interfaz 📋
-
-Puedes encontrar un ejemplo de la interfaz en este [enlace](https://tutorial.picaio.com/2022/06/29/realtime-database-firebase-esp32/).
-
 ## Contribuciones 🚀
 
 ¡Contribuciones son bienvenidas! Si tienes ideas para mejorar la dashboard, corregir errores o agregar nuevas características, no dudes en abrir un "issue" o enviar un "pull request".
