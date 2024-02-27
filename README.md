@@ -36,7 +36,7 @@ Puedes encontrar un ejemplo de la interfaz en este [enlace](https://tutorial.pic
 
 ## Créditos 🙌
 
-Este proyecto fue creado por [Tu Nombre] y está inspirado en proyectos similares de la comunidad de IoT y desarrollo web.
+Este proyecto fue creado por [PICAIO SAS] y está inspirado en proyectos similares de la comunidad de IoT y desarrollo web.
 
 ## Licencia 📝
 
